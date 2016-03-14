@@ -1,0 +1,40 @@
+
+public class Main {
+
+	static java.util.Scanner in;
+
+	static final String POLI = "POLIDIVISIBLE";
+	static final String NO_POLI = "NO POLIDIVISIBLE";
+
+	public static boolean procesa() {
+		if (!in.hasNext())
+			return false;
+		long num = in.nextLong();
+		System.out.println(isPoli(num));
+		return true;
+	}
+
+	public static String isPoli(long num) {
+
+		String salida = POLI;
+		int size = String.valueOf(num).length();
+
+		for (int i = size; i > 0; i--) {
+			if (num % i != 0){
+				salida = NO_POLI;
+				break;
+			}
+			else {
+				num /= 10;
+			}
+		}
+
+		return salida;
+	}
+
+	public static void main(String[] args) {
+		in = new java.util.Scanner(System.in);
+		while (procesa())
+			;
+	}
+}
